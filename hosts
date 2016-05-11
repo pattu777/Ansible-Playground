@@ -1,0 +1,9 @@
+[server]
+host.example.org
+
+[test]
+host2.example.org
+host3.example.org
+
+[localserver]
+127.0.0.1

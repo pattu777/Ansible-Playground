@@ -1,0 +1,12 @@
+---
+- hosts: server
+  remote_user: chinmaya
+  become: yes
+  tasks: 
+    - name: Install packages
+      apt: name={{ item }} state=present
+      with_items:
+          - git-core
+          - vim
+          - python-pip
+          - python-virtualenv
