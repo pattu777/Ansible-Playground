@@ -15,7 +15,7 @@ I recently bought a droplet from DigitalOcean. This repo contains Ansible playbo
 
 #### Developing
 
-Clone the repo.  and run the playbook.
+Clone the repo. Modify inventory file and the playbook with information of remote server. Finally run the playbook as shown below.
 
 ```bash
 $ git clone --recursive git@github.com:pattu777/Ansible-Playground.git
