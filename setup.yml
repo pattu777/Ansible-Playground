@@ -1,12 +1,38 @@
 ---
-- hosts: server
-  remote_user: chinmaya
+- name: Initial server setup
+  hosts: server
   become: yes
+  become_user: chinmaya
+  var_files:
+    - vars.yml
   tasks: 
-    - name: Install packages
+    - name: Update package manager
+      apt: update_cache: yes
+
+    - name: Install packages from vars.yml
       apt: name={{ item }} state=present
       with_items:
-          - git-core
-          - vim
-          - python-pip
-          - python-virtualenv
+          - "{{ packages }}"
+
+    - name: Create new user
+      user: name={{ server_username }} password={{ server_password }} shell=/bin/bash
+
+    - name: Add user to sudoers file
+      lineinfile: dest=/etc/sudoers
+                  regexp="{{ server_username }} ALL"
+                  line="{{ server_username }} ALL=(ALL) ALL"
+                  state=present
+
+    - name: Add authorized_keys for the user
+      authorized_key: user={{ server_username }} key={{ lookup('file', item) }} 
+      with_items:
+          - "{{ ssh_public_key }}"
+
+    - name: Disallow root SSH access
+      action: lineinfile dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin no" state=present
+
+    - name: Disallow password authentication
+      action: lineinfile dest=/etc/ssh/sshd_config regexp="^PasswordAuthentication" line="PasswordAuthentication no" state=present
+
+    - name: Restart SSH Server
+      service: name=ssh state=restarted

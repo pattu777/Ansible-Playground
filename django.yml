@@ -1,0 +1,16 @@
+---
+- hosts: server
+  remote_user: chinmaya
+  become: yes
+  tasks:
+    - name: Install necessary packages
+      apt: pkg={{ item }} state=installed
+      with_items:
+        - git-core
+        - nginx
+        - gunicorn
+        - python-virtualenv
+        - python-pip
+
+    - name: Clone your repository on Github
+

@@ -1,0 +1,9 @@
+packages:
+    - git-core
+    - vim
+    - python-pip
+    - python-virtualenv
+
+server_username: test_user
+server_passwordo: test_password
+ssh_public_key: ~/.ssh/id_rsa.pub

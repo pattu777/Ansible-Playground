@@ -11,7 +11,7 @@ I recently bought a droplet from DigitalOcean. This repo contains Ansible playbo
 - Ansible installed on your local system.
 - Public SSH key copied to the remote server.
 - Passwordless setup for a user with sudo privilleges.
-- Provide the ip address of the server in hosts file.
+- Provide the IP address of the server in hosts file.
 
 #### Developing
 
