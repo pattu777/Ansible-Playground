@@ -1,0 +1,15 @@
+---
+- name: Initial server setup
+  hosts: server
+  become: yes
+  become_user: chinmaya
+
+  vars_files:
+    - vars.yml
+
+  tasks: 
+    - name: Install packages from vars.yml
+      apt: name={{ item }} state=present update_cache=yes
+      with_items:
+          - "{{ packages }}"
+

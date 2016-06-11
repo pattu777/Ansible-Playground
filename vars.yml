@@ -3,6 +3,23 @@ packages:
     - vim
     - python-pip
     - python-virtualenv
+    - python-dev
+    - python-essential
+    - libevent-dev
+    - libffi-dev
+    - openssl-dev
+    - vlc
+    - tmux
+    - python-software-properties
+    - libssl-dev
+    - libreadline-dev 
+    - libyaml-dev 
+    - libsqlite3-dev 
+    - sqlite3 
+    - libxml2-dev 
+    - libxslt1-dev
+    - tree
+    - ipython
 
 server_username: test_user
 server_passwordo: test_password

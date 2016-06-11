@@ -1,10 +1,22 @@
 # Ansible-Playground
-I recently bought a droplet from DigitalOcean. This repo contains Ansible playbooks that I wrote to customize the new server. More detailed information can be found on my blog [https://pattu777.github.io](https://pattu777.github.io).
+I recently bought a droplet from DigitalOcean. This repo contains Ansible playbooks that I wrote to customize the new server. More detailed information can be found on my blog [chinmayapatanaik.com](chinmayapatanaik.com).
 
 ### Tasks
 
 - Install packages.
-- Setup a Django App.
+ * Git
+ * zsh
+ * oh-my-zsh
+ * vim
+ * tmux
+ * python-pip
+ * python-virtualenv
+ * Atom Editor
+ * Sublime Text Editor
+ * vlc
+ *  
+- Copy SSH public key to Github.
+- Copy SSH Key to a remote server
 
 ### Prerequisites
 
